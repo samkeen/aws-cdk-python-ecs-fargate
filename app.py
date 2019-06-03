@@ -6,6 +6,6 @@ from ghost_on_ecs.ghost_on_ecs_stack import GhostOnEcsStack
 
 
 app = cdk.App()
-GhostOnEcsStack(app, "ghost-on-ecs-cdk-1")
+GhostOnEcsStack(app, "ghost-on-ecs-cdk")
 
 app.run()

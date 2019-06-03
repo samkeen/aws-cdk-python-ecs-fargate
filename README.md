@@ -1,58 +1,41 @@
+# Using AWS CDK to create a an ECS Fargate deployment of the Ghost blog framework container. 
 
-# Welcome to your CDK Python project!
+This is a very simple example of using AWS CDK to define in Python 
+([Python >= 3.7.1](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html)) a an ECS Fargate deployment of the
+[Ghost Container](https://hub.docker.com/_/ghost/).
 
-This is a blank project for Python development with CDK.
+## Installing the CDK CLI
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+```bash
+npm install -g aws-cdk
 
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the .env
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
+cdk --version
+```
+You will also need your AWS CLI configured (`~/.aws/config`)
+See [docs](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html) for details.
 
-To manually create a virtualenv on MacOS and Linux:
+## Deploying this App Stack
+
+Git clone then `cd` into the top directory of this project
+
+Create your python virtual env
+```bash
+python -m venv .env
+source ./.env/bin/activate
+pip install -r requirements.txt
 
 ```
-$ python3 -m venv .env
+Optionally you can view the resulting CloudFormation template with `cdk synth`.
+
+When you are ready to deploy;
+```bash
+cdk deploy
 ```
 
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
+If you then log into the console you will see a CloudFormation template comprising the build of your Lambda function, DynamoDb table
+and associated resources.
 
+# Cleaning up
+```bash
+cdk destroy
 ```
-$ source .env/bin/activate
-```
-
-If you are a Windows platform, you would activate the virtualenv like this:
-
-```
-% .env\Scripts\activate.bat
-```
-
-Once the virtualenv is activated, you can install the required dependencies.
-
-```
-$ pip install -r requirements.txt
-```
-
-At this point you can now synthesize the CloudFormation template for this code.
-
-```
-$ cdk synth
-```
-
-To add additional dependencies, for example other CDK libraries, just add
-them to your `setup.py` file and rerun the `pip install -r requirements.txt`
-command.
-
-# Useful commands
-
- * `cdk ls`          list all stacks in the app
- * `cdk synth`       emits the synthesized CloudFormation template
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk docs`        open CDK documentation
-
-Enjoy!

@@ -9,17 +9,19 @@ setuptools.setup(
     name="ghost_on_ecs",
     version="0.0.1",
 
-    description="An empty CDK Python app",
+    description="Simple AWS CDK Python app which deploys the Ghost container to ECS Fargate",
     long_description=long_description,
     long_description_content_type="text/markdown",
 
-    author="author",
+    author="Sam Keen",
 
     package_dir={"": "ghost_on_ecs"},
     packages=setuptools.find_packages(where="ghost_on_ecs"),
 
     install_requires=[
         "aws-cdk.cdk",
+        "aws_ec2",
+        "aws_ecs",
     ],
 
     python_requires=">=3.6",
